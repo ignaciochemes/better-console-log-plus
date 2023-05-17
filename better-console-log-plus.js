@@ -21,8 +21,8 @@ const createLogFunction = (prefix, color) => {
     const prefixFormat = colors[color] + `[${prefix}]` + colors.reset;
     return (message, args) => {
         const timestamp = getTimeStamp();
-        const formattedArgs = args ? JSON.stringify(args, null, 2) : '';
-        const logMessage = `${timestamp}${prefixFormat}: ${message}\n${formattedArgs}`;
+        const formattedArgs = args || '';
+        const logMessage = `${timestamp}${prefixFormat}: ${message} ${formattedArgs}`;
         console.log(logMessage.trim());
     };
 };
