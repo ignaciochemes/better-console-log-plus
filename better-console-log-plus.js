@@ -22,7 +22,7 @@ function createLogFunction(prefix, color) {
     return (message, ...args) => {
         const timestamp = getTimeStamp();
         const formattedArgs = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : arg);
-        const logMessage = util.format(`${timestamp}${prefixFormat}: ${message} %s`, ...formattedArgs);
+        const logMessage = util.format(`${timestamp}${prefixFormat}: ${message}`, ...formattedArgs);
         console.log(logMessage.trim());
     };
 }
