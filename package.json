@@ -1,5 +1,5 @@
 {
-  "name": "better-console-log",
+  "name": "better-console-log-plus",
   "version": "1.0.0",
   "description": "Simple console (colored) logger for Node.js",
   "main": "index.js",
