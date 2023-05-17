@@ -33,4 +33,4 @@ const logger = {
     debug: createLogFunction('DEBUG', 'green')
 };
 
-export default logger;
+module.exports = logger;

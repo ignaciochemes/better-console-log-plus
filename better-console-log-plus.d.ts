@@ -11,5 +11,11 @@ declare module 'better-console-log-plus' {
 
     const logger: Logger;
 
+    export = logger;
+
+}
+
+declare module 'better-console-log-plus/default' {
+    import logger from 'better-console-log-plus';
     export default logger;
 }
