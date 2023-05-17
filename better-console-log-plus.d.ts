@@ -1,5 +1,5 @@
 declare module 'better-console-log-plus' {
-    type logger = (message: string) => void;
+    type logger = (message: string, ...args: any[]) => void;
 
     interface Logger {
         log: logger;
