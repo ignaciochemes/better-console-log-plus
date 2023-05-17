@@ -1,3 +1,5 @@
+const util = require('util');
+
 const colors = {
     white: '\u001b[37m',
     gray: '\u001b[90m',
@@ -8,24 +10,22 @@ const colors = {
     reset: '\u001b[0m'
 };
 
-const getTimeStamp = (() => {
+function getTimeStamp() {
     const format = new Intl.DateTimeFormat([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    return () => {
-        const now = new Date();
-        const formattedTime = format.format(now);
-        return `${colors.gray}[${formattedTime}]${colors.reset}`;
-    };
-})();
+    const now = new Date();
+    const formattedTime = format.format(now);
+    return `${colors.gray}[${formattedTime}]${colors.reset}`;
+}
 
-const createLogFunction = (prefix, color) => {
+function createLogFunction(prefix, color) {
     const prefixFormat = colors[color] + `[${prefix}]` + colors.reset;
-    return (message, args) => {
+    return (message, ...args) => {
         const timestamp = getTimeStamp();
-        const formattedArgs = args || '';
-        const logMessage = `${timestamp}${prefixFormat}: ${message} ${formattedArgs}`;
+        const formattedArgs = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : arg);
+        const logMessage = util.format(`${timestamp}${prefixFormat}: ${message} %s`, ...formattedArgs);
         console.log(logMessage.trim());
     };
-};
+}
 
 const logger = {
     log: createLogFunction('LOG', 'white'),
