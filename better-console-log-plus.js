@@ -17,22 +17,22 @@ function getTimeStamp() {
     return `${colors.gray}[${formattedTime}]${colors.reset}`;
 }
 
-function createLogFunction(prefix, color) {
-    const prefixFormat = colors[color] + `[${prefix}]` + colors.reset;
+function createLogFunction(prefix, color, timestamp) {
+    const prefixFormat = timestamp ? colors[color] + `[${prefix}]` + colors.reset : `[${prefix}]`;
     return (message, ...args) => {
-        const timestamp = getTimeStamp();
-        const formattedArgs = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : arg);
-        const logMessage = util.format(`${timestamp}${prefixFormat}: ${message}`, ...formattedArgs);
-        console.log(logMessage.trim());
+        const formattedMessage = args.length > 0 ? util.format(`${timestamp}${prefixFormat}: ${message}`, ...args) : `${timestamp}${prefixFormat}: ${message}`;
+        console.log(formattedMessage.trim());
     };
 }
 
+const timestamp = getTimeStamp();
+
 const logger = {
-    log: createLogFunction('LOG', 'white'),
-    error: createLogFunction('ERROR', 'red'),
-    warn: createLogFunction('WARN', 'yellow'),
-    info: createLogFunction('INFO', 'blue'),
-    debug: createLogFunction('DEBUG', 'green')
+    log: createLogFunction('LOG', 'white', timestamp),
+    error: createLogFunction('ERROR', 'red', timestamp),
+    warn: createLogFunction('WARN', 'yellow', timestamp),
+    info: createLogFunction('INFO', 'blue', timestamp),
+    debug: createLogFunction('DEBUG', 'green', timestamp)
 };
 
 module.exports = logger;

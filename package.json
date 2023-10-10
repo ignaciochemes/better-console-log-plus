@@ -1,15 +1,15 @@
 {
-  "name": "better-console-log-plus",
-  "version": "1.4.3",
-  "description": "Simple console (colored) logger for Node.js",
-  "main": "better-console-log-plus.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Ignacio Gonzalez",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ignaciochemes/better-console-log.git"
-  },
-  "license": "ISC"
+    "name": "better-console-log-plus",
+    "version": "1.4.4",
+    "description": "Simple console (colored) logger for Node.js",
+    "main": "better-console-log-plus.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Ignacio Gonzalez",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ignaciochemes/better-console-log-plus.git"
+    },
+    "license": "ISC"
 }
