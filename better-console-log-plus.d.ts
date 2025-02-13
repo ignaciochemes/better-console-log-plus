@@ -7,12 +7,13 @@ declare module 'better-console-log-plus' {
         warn: logger;
         info: logger;
         debug: logger;
+        setLevel: (level: 'error' | 'warn' | 'info' | 'debug') => void;
+        setColors: (newColors: Record<string, string>) => void;
     }
 
     const logger: Logger;
 
     export = logger;
-
 }
 
 declare module 'better-console-log-plus/default' {

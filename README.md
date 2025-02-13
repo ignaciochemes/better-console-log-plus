@@ -16,7 +16,7 @@ npm install better-console-log-plus
 
 ```javascript
 const logger = require('better-console-log-plus');
-// OR
+// Or if you're using ES modules
 import * as logger from 'better-console-log-plus';
 
 // Example logging
@@ -25,6 +25,21 @@ logger.error('This is an error message');
 logger.warn('This is a warning message');
 logger.info('This is an info message');
 logger.debug('This is a debug message');
+```
+
+## Customizing
+```javascript
+// Set the log level
+logger.setLevel('debug'); // Show all messages
+logger.setLevel('info');  // Show info, warnings, and errors
+logger.setLevel('error'); // Show only errors
+
+// Set the log colors
+logger.setColors({
+    blue: '\u001b[36m', // Change blue to cyan
+    green: '\u001b[92m'  // Change green to light green
+});
+
 ```
 
 The "better-console-log-plus" package provides a `logger` object with five available functions: `log`, `error`, `warn`, `info`, and `debug`. You can call these functions to log messages to the console with different levels of importance.
