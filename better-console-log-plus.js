@@ -28,7 +28,7 @@ function getTimeStamp() {
 
 function createLogFunction(prefix, color, level) {
     return (message, ...args) => {
-        if (level > currentLevel) return; // No mostrar mensajes de nivel inferior
+        if (level > currentLevel) return;
         const timestamp = getTimeStamp();
         const prefixFormat = colors[color] + `[${prefix}]` + colors.reset;
         const formattedMessage = args.length > 0
@@ -52,7 +52,7 @@ const logger = {
         }
     },
     setColors: (newColors) => {
-        Object.assign(colors, newColors); // Actualizar colores
+        Object.assign(colors, newColors);
     }
 };
 
